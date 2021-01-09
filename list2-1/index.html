@@ -38,12 +38,24 @@
             <th>tel</th>
           </tr>
         </thead>
-        <tr v-for="(item, id) in items">
-          <td>{{ id }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.mail }}</td>
-          <td>{{ item.tel }}</td>
-        </tr>
+        <template v-for="(item, index) in items">
+          <template v-if="index % 2 == 0">
+            <tr>
+              <td>{{ index }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.mail }}</td>
+              <td>{{ item.tel }}</td>
+            </tr>
+          </template>
+          <template v-else>
+            <tr>
+              <td>***</td>
+              <td>***非公開***</td>
+              <td>***非公開***</td>
+              <td>***非公開***</td>
+            </tr>
+          </template>
+        </template>
       </table>
     </div>
 
